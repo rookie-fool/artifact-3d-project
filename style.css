@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: linear-gradient(45deg, #0a0c27, #1a1a2e);
+    font-family: 'HanZhen', '楷体', sans-serif;
+}
+
+/* 星空背景 */
+.stars {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: 
+        radial-gradient(2px 2px at 20% 30%, #fff9, transparent),
+        radial-gradient(2px 2px at 80% 70%, #fff9, transparent);
+    animation: stars 100s linear infinite;
+}
+
+@keyframes stars {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 主标题 */
+.title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #c0a86e;
+    font-size: 3em;
+    text-shadow: 0 0 10px #c0a86e66;
+    z-index: 10;
+}
+
+/* 浮动文字 */
+.float-text {
+    position: absolute;
+    font-family: 'HanZhen', '楷体', sans-serif;
+    font-size: 24px;
+    opacity: 0;
+    animation: float 8s linear infinite;
+    text-shadow: 0 0 8px rgba(192, 168, 110, 0.5);
+    background: linear-gradient(45deg, #c0a86e, #e5d7a3);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotateX(360deg) rotateY(180deg) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+
+/* 字体定义 */
+@font-face {
+    font-family: 'HanZhen';
+    src: url('fonts/hanzhen.ttf') format('truetype');
+    font-display: swap;
+}
+
+/* 鼠标粒子 */
+.particles {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+}
